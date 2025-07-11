@@ -1,0 +1,5 @@
+[
+  { "title": "Beach Paradise", "location": "Hawaii", "price": 1200 },
+  { "title": "Mountain Escape", "location": "Colorado", "price": 800 },
+  { "title": "City Lights", "location": "New York", "price": 1500 }
+]
