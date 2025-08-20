@@ -54,3 +54,38 @@ This course has been a major step in building my skills as a full-stack develope
 Beyond the technical knowledge, I’ve learned best practices in structuring projects, using services for efficiency, and securing applications with authentication. These are skills that employers value, and they directly increase my marketability in the software development field.  
 
 I also developed confidence in debugging, refactoring, and testing—skills that will carry over into any project. Overall, this course not only helped me complete a working application but also gave me the tools to continue growing as a developer and problem-solver.
+
+---
+
+## How to Run This Project
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) installed  
+- [Angular CLI](https://angular.io/cli) installed  
+- [MongoDB](https://www.mongodb.com/try/download/community) running locally (default: `mongodb://127.0.0.1:27017/travlr`)  
+
+### Steps
+1. Clone this repository:  
+   `git clone https://github.com/noahkhomer18/CS-465.git`  
+   `cd CS-465`
+
+2. Install backend dependencies:  
+   `npm install`
+
+3. Start the backend server:  
+   `npm start`  
+   The API will run at `http://localhost:3000`.
+
+4. Run MongoDB locally:  
+   `mongod`
+
+5. Navigate to the Angular SPA folder:  
+   `cd client/travlr-admin`  
+   `npm install`  
+   `ng serve`  
+   The admin SPA will run at `http://localhost:4200`.
+
+---
+
+## Special Thanks
+A special thanks to **Southern New Hampshire University (SNHU)** and **Professor Paul Davis** for guidance and support throughout this course. This project is part of the CS-465 Full Stack Development curriculum.
