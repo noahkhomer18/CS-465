@@ -301,7 +301,7 @@ This project is part of the **CS-465 Full Stack Development** curriculum at **So
 ## 🙏 Acknowledgments
 
 - **Southern New Hampshire University (SNHU)**
-- **Professor Paul Davis** for guidance and support
+- **Professor Paul Davis & Joseph Martinez** for guidance and support
 - **CS-465 Full Stack Development** course curriculum
 
 ---
