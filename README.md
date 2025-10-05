@@ -1,91 +1,317 @@
-# CS 465 Full Stack Development – Module Eight Journal
+# 🏝️ Travlr Getaways - Full Stack Travel Management System
 
-## Architecture
-In this project, we worked with two distinct frontend approaches.  
-The **Express app_server** used traditional server-side rendering. Express served HTML pages (often with Handlebars templates) where each navigation or major action triggered a full page reload. While simple and reliable, this approach can feel slower because the server generates new HTML for every request.
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![Angular](https://img.shields.io/badge/Angular-17+-red.svg)](https://angular.io/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-green.svg)](https://mongodb.com/)
+[![Express](https://img.shields.io/badge/Express-5.0+-blue.svg)](https://expressjs.com/)
 
-On the other hand, the **Angular Single-Page Application (SPA)** in `client/travlr-admin` followed a very different model. The SPA loads once in the browser, and all further interactions happen dynamically through JavaScript. Angular uses RESTful API calls to communicate with the backend, updating the UI without reloading the page. This approach feels smoother, more interactive, and closer to a desktop application, although the initial load is heavier.
+## 📚 ePortfolio Artifact - CS 499 Capstone Project
 
-For the database, the backend used **MongoDB**, a NoSQL solution. Its flexible, JSON-like structure is well suited to projects that evolve quickly. Unlike rigid relational schemas, MongoDB allows data models to adapt over time. It’s also highly scalable, making it a strong choice for applications that may need to handle large or varied data sets.
+This project serves as a **database enhancement artifact** for my **CS 499 Computer Science Capstone Project** at Southern New Hampshire University. The artifact demonstrates advanced database design, implementation, and optimization skills through a comprehensive full-stack travel management system.
 
----
-
-## Functionality
-JSON (JavaScript Object Notation) is often confused with JavaScript, but they are different. **JavaScript** is a full programming language with logic, control flow, and DOM manipulation. **JSON** is simply a lightweight data format made of key-value pairs, designed for exchanging information.  
-
-JSON is what ties the frontend and backend together. When Angular requests trip data, Express queries MongoDB, formats the results as JSON, and sends it back. Angular parses that JSON into objects and updates the UI. Likewise, when the user submits new data (like adding a trip), Angular sends JSON to the backend, which parses and saves it to the database. This shared format makes seamless communication possible.
-
-During development, one big refactor was centralizing data handling in Angular. Instead of every component making its own API calls, the logic was moved into dedicated services like `trip-data.service.ts`. This eliminated duplication, simplified error handling, and made future updates easier.  
-
-Reusable UI components were another major improvement. For example, creating a `trip-card.component.ts` allowed all trips to be displayed consistently without rewriting code. Benefits included:
-- **Reusability:** One component, many uses.  
-- **Maintainability:** Fixes and updates in one place.  
-- **Consistency:** A uniform look and feel across the app.  
-- **Faster development:** Quicker assembly of new features.  
-- **Testability:** Easier to test isolated components.
+### 🎯 Capstone Enhancement Focus
+This artifact showcases expertise in **database systems** through:
+- **Advanced Schema Design**: Complex relationships between Users, Trips, and Reviews
+- **Database Optimization**: Indexing strategies, aggregation pipelines, and query optimization
+- **Data Modeling**: One-to-many relationships, referential integrity, and data validation
+- **Security Implementation**: Role-based access control, data encryption, and secure authentication
+- **Analytics & Reporting**: MongoDB aggregation for business intelligence and statistical analysis
 
 ---
 
-## Testing
-In a full-stack application, testing involves HTTP methods, API endpoints, and security layers.
+## 🎓 CS 465 Full Stack Development Coursework
 
-**Methods:**  
-- `GET` retrieves data (e.g., `GET /api/trips`).  
-- `POST` creates data (e.g., `POST /api/trips`).  
-- `PUT` replaces an existing resource.  
-- `PATCH` partially updates a resource.  
-- `DELETE` removes a resource.
+Originally developed as part of **CS 465 Full Stack Development** coursework, this project demonstrates the evolution from a basic travel application to a sophisticated, production-ready system. The enhancement process showcases the application of advanced database concepts learned throughout the Computer Science program.
 
-**Endpoints:** These are specific URLs for resources. For example, `/api/trips` handles all trips, while `/api/trips/:id` targets a single trip. Each endpoint works with one or more methods depending on the action.
-
-**Security:** The project used JWT (JSON Web Token) authentication. After logging in, users receive a token which is attached to subsequent requests. Security adds complexity to testing because we must verify:
-- Unauthenticated requests fail where expected.  
-- Tokens are valid, expire correctly, and cannot be forged.  
-- Authorized users can perform allowed actions, while unauthorized users cannot.  
-- Inputs are validated to prevent malicious behavior.  
-
-API testing, therefore, isn’t just about getting the right data back—it’s also about ensuring proper security, permissions, and robustness against invalid or hostile input.
+### 📈 Enhancement Journey
+- **Initial State**:** Basic CRUD operations with simple data storage
+- **Enhanced State**:** Advanced database architecture with relationships, security, and analytics
+- **Professional Standards**:** Production-ready code with comprehensive documentation and testing
 
 ---
 
-## Reflection
-This course has been a major step in building my skills as a full-stack developer. I’ve gained hands-on experience with Express, Angular, MongoDB, and RESTful APIs, which together make up a professional-grade stack.  
+A comprehensive full-stack travel management application built with **Express.js**, **Angular**, and **MongoDB**. Features include trip management, user reviews, role-based access control, and advanced analytics.
 
-Beyond the technical knowledge, I’ve learned best practices in structuring projects, using services for efficiency, and securing applications with authentication. These are skills that employers value, and they directly increase my marketability in the software development field.  
+## 🚀 Features
 
-I also developed confidence in debugging, refactoring, and testing—skills that will carry over into any project. Overall, this course not only helped me complete a working application but also gave me the tools to continue growing as a developer and problem-solver.
+### ✨ Core Features
+- **Trip Management**: Create, read, update, and delete travel packages
+- **User Reviews**: Rate and review trips with comments
+- **Role-Based Access Control**: Admin and user roles with different permissions
+- **Advanced Filtering**: Filter trips by destination, price, and date
+- **Analytics Dashboard**: Admin statistics with aggregation pipelines
+- **JWT Authentication**: Secure user authentication and authorization
 
----
+### 🎯 Technical Highlights
+- **Backend**: Express.js with MongoDB and Mongoose ODM
+- **Frontend**: Angular 17+ with TypeScript
+- **Database**: MongoDB with proper schema design and relationships
+- **Security**: JWT tokens, password hashing, input validation
+- **API Design**: RESTful endpoints with proper HTTP methods
 
-## How to Run This Project
+## 📁 Project Structure
+
+```
+travlr-getaways/
+├── 📁 app_server/                 # Backend Express.js Application
+│   ├── 📁 controllers/            # Business logic controllers
+│   │   ├── adminController.js     # Admin analytics and stats
+│   │   ├── authController.js      # Authentication (login/register)
+│   │   ├── reviewController.js     # Review CRUD operations
+│   │   ├── tripController.js      # Trip CRUD operations
+│   │   └── traveller.js           # Legacy view controller
+│   ├── 📁 middleware/             # Custom middleware
+│   │   └── auth.js                # JWT authentication & RBAC
+│   ├── 📁 models/                 # MongoDB schemas
+│   │   ├── Review.js              # Review model with trip reference
+│   │   ├── Trip.js                # Trip model with validation
+│   │   └── User.js                # User model with roles
+│   ├── 📁 routes/                 # API route definitions
+│   │   ├── api.js                # Main API routes
+│   │   └── traveller.js           # Legacy view routes
+│   ├── 📁 utils/                  # Utility functions
+│   └── 📁 views/                   # Handlebars templates
+├── 📁 client/                     # Frontend Angular Application
+│   └── 📁 travlr-admin/           # Angular SPA
+│       ├── 📁 src/app/            # Angular components and services
+│       │   ├── 📁 review/         # Review components
+│       │   ├── 📁 services/       # Angular services
+│       │   ├── 📁 trip-*/         # Trip-related components
+│       │   └── 📁 auth/            # Authentication components
+│       └── 📁 src/assets/          # Static assets and images
+├── 📁 docs/                       # Documentation and assets
+│   ├── 📁 screenshots/            # Application screenshots
+│   └── 📁 assets/                 # Project assets
+├── 📁 config/                     # Configuration files
+├── 📁 tests/                      # Test files
+├── 📄 app.js                      # Main Express application
+├── 📄 package.json                # Dependencies and scripts
+└── 📄 .env.example               # Environment variables template
+```
+
+## 🛠️ Installation & Setup
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) installed  
-- [Angular CLI](https://angular.io/cli) installed  
-- [MongoDB](https://www.mongodb.com/try/download/community) running locally (default: `mongodb://127.0.0.1:27017/travlr`)  
+- **Node.js** (v18 or higher)
+- **MongoDB** (v6.0 or higher)
+- **Angular CLI** (v17 or higher)
 
-### Steps
-1. Clone this repository:  
-   `git clone https://github.com/noahkhomer18/CS-465.git`  
-   `cd CS-465`
+### Backend Setup
 
-2. Install backend dependencies:  
-   `npm install`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/noahkhomer18/CS-465.git
+   cd CS-465
+   ```
 
-3. Start the backend server:  
-   `npm start`  
-   The API will run at `http://localhost:3000`.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-4. Run MongoDB locally:  
-   `mongod`
+3. **Environment configuration**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your MongoDB URI and JWT secret
+   ```
 
-5. Navigate to the Angular SPA folder:  
-   `cd client/travlr-admin`  
-   `npm install`  
-   `ng serve`  
-   The admin SPA will run at `http://localhost:4200`.
+4. **Start MongoDB**
+   ```bash
+   mongod
+   ```
+
+5. **Run the backend server**
+   ```bash
+   npm start
+   # Server runs on http://localhost:3000
+   ```
+
+### Frontend Setup
+
+1. **Navigate to Angular app**
+   ```bash
+   cd client/travlr-admin
+   ```
+
+2. **Install Angular dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start Angular development server**
+   ```bash
+   ng serve
+   # App runs on http://localhost:4200
+   ```
+
+## 🔧 API Endpoints
+
+### Authentication
+- `POST /api/register` - User registration
+- `POST /api/login` - User login
+- `GET /api/me` - Get current user
+
+### Trips
+- `GET /api/trips` - Get all trips (with filtering)
+- `GET /api/trips/:code` - Get single trip
+- `POST /api/trips` - Create trip (admin only)
+- `PUT /api/trips/:code` - Update trip (admin only)
+- `DELETE /api/trips/:code` - Delete trip (admin only)
+
+### Reviews
+- `GET /api/trips/:tripId/reviews` - Get reviews for a trip
+- `GET /api/reviews/my` - Get user's reviews
+- `POST /api/reviews` - Create review
+- `PUT /api/reviews/:id` - Update review
+- `DELETE /api/reviews/:id` - Delete review
+
+### Admin
+- `GET /api/admin/stats` - Get analytics (admin only)
+
+## 🎨 Features in Detail
+
+### 🔐 Role-Based Access Control (RBAC)
+- **Admin Role**: Full CRUD access to trips, view analytics
+- **User Role**: View trips, create/edit own reviews
+- **JWT Authentication**: Secure token-based authentication
+
+### 📊 Advanced Query Features
+- **Trip Filtering**: By destination, price range, date
+- **Sorting**: By price, rating, start date
+- **Aggregation**: Admin statistics with MongoDB aggregation pipelines
+
+### ⭐ Review System
+- **Rating System**: 1-5 star ratings
+- **Comments**: Text reviews with validation
+- **User Reviews**: One review per user per trip
+- **Review Analytics**: Average ratings, review counts
+
+## 🧪 Testing
+
+### API Testing
+Use tools like **Postman** or **Insomnia** to test the API endpoints:
+
+```bash
+# Example: Get all trips
+GET http://localhost:3000/api/trips
+
+# Example: Create a review (requires authentication)
+POST http://localhost:3000/api/reviews
+Authorization: Bearer <your-jwt-token>
+Content-Type: application/json
+
+{
+  "tripId": "trip-object-id",
+  "rating": 5,
+  "comment": "Amazing trip!"
+}
+```
+
+## 📸 Screenshots
+
+Check the `docs/screenshots/` folder for application screenshots showing:
+- Trip listing and details
+- Review system interface
+- Admin dashboard
+- Authentication flows
+
+## 🚀 Deployment
+
+### Environment Variables
+Create a `.env` file with:
+```env
+MONGODB_URI=mongodb://127.0.0.1:27017/travlr
+JWT_SECRET=your-super-secret-jwt-key
+JWT_EXPIRE=7d
+PORT=3000
+NODE_ENV=development
+```
+
+### Production Considerations
+- Use environment-specific MongoDB URIs
+- Set strong JWT secrets
+- Configure CORS for production domains
+- Use HTTPS in production
+- Set up proper logging and monitoring
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 🎓 CS 499 Learning Outcomes Demonstrated
+
+### 🗄️ Database Systems Expertise
+This artifact demonstrates mastery of database concepts through:
+
+**Advanced Schema Design**
+- Complex entity relationships (Users ↔ Trips ↔ Reviews)
+- Referential integrity with foreign key constraints
+- Data validation and business rule enforcement
+- Optimized indexing strategies for performance
+
+**Database Security & Access Control**
+- Role-based access control (RBAC) implementation
+- Secure authentication with JWT tokens
+- Password hashing and encryption
+- Input validation and SQL injection prevention
+
+**Analytics & Business Intelligence**
+- MongoDB aggregation pipelines for complex queries
+- Statistical analysis of user behavior and preferences
+- Performance metrics and system monitoring
+- Data-driven decision making capabilities
+
+**Professional Development Practices**
+- Comprehensive API documentation
+- Code organization and maintainability
+- Testing strategies and quality assurance
+- Version control and collaborative development
+
+### 🔧 Technical Skills Showcased
+- **Database Design**: Entity-Relationship modeling, normalization, indexing
+- **Backend Development**: RESTful API design, middleware implementation, security
+- **Frontend Integration**: Angular services, reactive programming, user experience
+- **System Architecture**: Full-stack integration, scalability considerations
+- **Documentation**: Professional-grade technical writing and code documentation
+
+## 📚 Technologies Used
+
+### Backend
+- **Express.js** - Web framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - ODM for MongoDB
+- **JWT** - Authentication tokens
+- **bcryptjs** - Password hashing
+- **express-validator** - Input validation
+
+### Frontend
+- **Angular 17+** - Frontend framework
+- **TypeScript** - Type-safe JavaScript
+- **RxJS** - Reactive programming
+- **Bootstrap** - CSS framework
+
+## 📄 License
+
+This project is part of the **CS-465 Full Stack Development** curriculum at **Southern New Hampshire University**.
+
+## 🙏 Acknowledgments
+
+- **Southern New Hampshire University (SNHU)**
+- **Professor Paul Davis** for guidance and support
+- **CS-465 Full Stack Development** course curriculum
 
 ---
 
-## Special Thanks
-A special thanks to **Southern New Hampshire University (SNHU)** and **Professor Paul Davis** for guidance and support throughout this course. This project is part of the CS-465 Full Stack Development curriculum.
+## 📞 Support
+
+For questions or support, please contact:
+- **GitHub Issues**: [Create an issue](https://github.com/noahkhomer18/CS-465/issues)
+- **Email**: [Your contact email]
+
+---
+
+**Built with ❤️ for CS-465 Full Stack Development**
