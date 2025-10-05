@@ -306,12 +306,4 @@ This project is part of the **CS-465 Full Stack Development** curriculum at **So
 
 ---
 
-## 📞 Support
-
-For questions or support, please contact:
-- **GitHub Issues**: [Create an issue](https://github.com/noahkhomer18/CS-465/issues)
-- **Email**: [Your contact email]
-
----
-
 **Built with ❤️ for CS-465 Full Stack Development**
