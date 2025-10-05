@@ -28,6 +28,10 @@
       <p class="card-text"><strong>Description:</strong> {{ trip.description }}</p>
     </div>
   </div>
+  
+  <!-- Reviews Section -->
+  <app-review *ngIf="trip" [tripId]="trip._id"></app-review>
+  
   <div *ngIf="!trip" class="alert alert-warning" role="alert">
     Trip not found or an error occurred.
   </div>
