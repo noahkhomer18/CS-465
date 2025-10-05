@@ -23,7 +23,7 @@ Content-Type: application/json
 {
   "name": "John Doe",
   "email": "john@example.com",
-  "password": "password123"
+  "password": "your-secure-password"
 }
 ```
 
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 {
   "email": "john@example.com",
-  "password": "password123"
+  "password": "your-secure-password"
 }
 ```
 
@@ -289,7 +289,7 @@ Authorization: Bearer <admin-token>
 ```bash
 curl -X POST http://localhost:3000/api/register \
   -H "Content-Type: application/json" \
-  -d '{"name":"John Doe","email":"john@example.com","password":"password123"}'
+  -d '{"name":"John Doe","email":"john@example.com","password":"your-secure-password"}'
 ```
 
 #### Get all trips
