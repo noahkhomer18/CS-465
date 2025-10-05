@@ -268,7 +268,7 @@ app.use((req, res, next) => {
 ```env
 # Production
 NODE_ENV=production
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database-name
+MONGODB_URI=your-mongodb-connection-string-here
 JWT_SECRET=your-super-secret-jwt-key-here
 PORT=3000
 ```
